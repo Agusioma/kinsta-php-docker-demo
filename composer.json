@@ -1,0 +1,11 @@
+{
+    "name": "kim/php-auth-docker",
+    "description": "A basic auth system",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+        "respect/validation": "^2.3",
+        "ircmaxell/password-compat": "^1.0"
+    }
+}
