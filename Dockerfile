@@ -1,5 +1,5 @@
 FROM php:8.3-apache
-
+EXPOSE 8080
 # Install MySQL client, server, and other dependencies
 RUN apt-get update && \
 	apt-get install -y \
@@ -17,6 +17,13 @@ COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 
 # Set working directory
 WORKDIR /var/www/html
+
+# Set up Apache virtual host
+COPY apache-conf/apache-config.conf /etc/apache2/sites-available/000-default.conf
+
+# Set up Apache ports
+COPY apache-conf/apache-ports.conf /etc/apache2/ports.conf
+
 
 # Copy composer.json and composer.lock
 COPY composer.json composer.lock ./
