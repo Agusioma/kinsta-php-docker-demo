@@ -1,5 +1,5 @@
 FROM php:8.3-apache
-EXPOSE 8080
+#EXPOSE 8080
 # Install MySQL client, server, and other dependencies
 RUN apt-get update && \
 	apt-get install -y \
